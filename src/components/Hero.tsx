@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, FileText, ArrowUpRight, Award, Star, Sparkles, Eye, Download } from 'lucide-react';
+import { ArrowUpRight, FileText, Mail, Sparkles, Eye } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 interface HeroProps {
@@ -11,7 +11,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenCvModal }) => {
   const p = PORTFOLIO_DATA.personal;
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <section id="about" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       
       {/* Background Decorative Lighting Shapes */}
       <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-rose-300/30 blur-3xl pointer-events-none animate-pulse-glow" />
@@ -26,20 +26,20 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenCvModal }) => {
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 border border-rose-200 shadow-md shadow-rose-500/5 text-xs font-extrabold text-rose-600">
               <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
-              <span>{lang === 'en' ? 'Open for Full-Time Marketing Opportunities' : 'Sẵn Sàng Tiếp Nhận Vị Trí Marketing Mới'}</span>
+              <span>{lang === 'en' ? 'Open for Full-Time Marketing Opportunities' : 'Sẵn Sàng Cho Cơ Hội Marketing Mới'}</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.1]">
-              {lang === 'en' ? 'Hello, I\'m ' : 'Xin chào, tôi là '}
-              <span className="text-gradient-rose font-serif italic font-normal block sm:inline">
+              {lang === 'en' ? "Hello, I'm " : "Xin chào, tôi là "}
+              <span className="text-gradient-rose font-serif italic font-normal inline">
                 {p.displayName}
               </span>
             </h1>
 
             {/* Sub-headline title */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
-              <h2 className="text-sm sm:text-base font-extrabold text-rose-600 tracking-widest uppercase bg-rose-50/80 px-4 py-1.5 rounded-full border border-rose-200/60 inline-block">
+              <h2 className="text-xs sm:text-sm font-extrabold text-rose-600 tracking-widest uppercase bg-rose-50/80 px-4 py-1.5 rounded-full border border-rose-200/60 inline-block">
                 {p.title[lang]}
               </h2>
             </div>
@@ -50,12 +50,12 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenCvModal }) => {
             </p>
 
             {/* Large Avant-Garde Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4">
               
               {/* Primary View Portfolio Button */}
               <a
                 href="#projects"
-                className="btn-primary-modern text-sm"
+                className="btn-primary-modern text-xs sm:text-sm"
               >
                 <span>{lang === 'en' ? 'Explore Portfolio Work' : 'Khám Phá Dự Án'}</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -64,16 +64,16 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenCvModal }) => {
               {/* CV PDF Attachment Trigger Button */}
               <button
                 onClick={onOpenCvModal}
-                className="btn-secondary-modern text-sm flex items-center gap-2"
+                className="btn-secondary-modern text-xs sm:text-sm flex items-center gap-2"
               >
                 <FileText className="w-4 h-4 text-rose-500" />
-                <span>{lang === 'en' ? 'View Resume PDF' : 'Xem CV Chi Tiết (PDF)'}</span>
+                <span>{lang === 'en' ? 'View Resume PDF' : 'Xem Hồ Sơ CV (PDF)'}</span>
               </button>
 
               {/* Contact Button */}
               <a
                 href="#contact"
-                className="px-6 py-3.5 rounded-full bg-slate-900 text-white font-extrabold text-sm hover:bg-slate-800 shadow-md hover:scale-105 transition-all flex items-center gap-2"
+                className="px-6 py-3.5 rounded-full bg-slate-900 text-white font-extrabold text-xs sm:text-sm hover:bg-slate-800 shadow-md hover:scale-105 transition-all flex items-center gap-2"
               >
                 <Mail className="w-4 h-4 text-pink-400" />
                 <span>{lang === 'en' ? 'Contact' : 'Liên Hệ'}</span>
@@ -135,4 +135,3 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenCvModal }) => {
     </section>
   );
 };
-

@@ -22,37 +22,39 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, lang }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-6 bg-slate-950/90 backdrop-blur-md animate-fade-in"
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-4xl h-[92vh] bg-white rounded-[32px] overflow-hidden shadow-2xl border border-rose-100 flex flex-col"
+        className="relative w-full h-full sm:h-[92vh] sm:max-w-4xl bg-white sm:rounded-[32px] overflow-hidden shadow-2xl border border-rose-100 flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Top Header Bar */}
-        <div className="px-6 py-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-500 p-[2px] shadow-md flex items-center justify-center">
-              <FileText className="w-5 h-5 text-white" />
+        {/* Modal Top Header Bar - Mobile responsive layout */}
+        <div className="px-4 sm:px-6 py-3 sm:py-4 bg-slate-900 text-white flex items-center justify-between gap-2 border-b border-slate-800 shrink-0">
+          
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-500 p-[2px] shadow-md flex items-center justify-center shrink-0">
+              <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="font-extrabold text-base tracking-tight text-white">
-                  {PORTFOLIO_DATA.personal.displayName} — Curriculum Vitae
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5 truncate">
+                <h3 className="font-extrabold text-xs sm:text-base tracking-tight text-white truncate">
+                  {PORTFOLIO_DATA.personal.displayName} — CV
                 </h3>
-                <span className="px-2.5 py-0.5 rounded-full bg-rose-500/30 border border-rose-400/40 text-[10px] font-extrabold text-rose-200 uppercase">
+                <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-rose-500/30 border border-rose-400/40 text-[9px] font-extrabold text-rose-200 uppercase">
                   Verified PDF
                 </span>
               </div>
-              <p className="text-xs text-slate-300 font-medium">
-                {lang === 'en' ? 'Official Marketing & E-Commerce Resume' : 'Hồ Sơ Năng Lực & Kinh Nghiệm Marketing'}
+              <p className="text-[10px] sm:text-xs text-slate-300 font-medium truncate">
+                {lang === 'en' ? 'Official Marketing Resume' : 'Hồ Sơ Năng Lực Marketing'}
               </p>
             </div>
           </div>
 
           {/* Top Actions: Zoom controls & Download & Close */}
-          <div className="flex items-center gap-2.5">
-            {/* Zoom controls */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            
+            {/* Desktop Zoom controls */}
             <div className="hidden sm:flex items-center gap-1 bg-slate-800 p-1 rounded-xl text-slate-300">
               <button 
                 onClick={handleZoomOut}
@@ -84,27 +86,29 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, lang }) => {
             <a
               href={cvPdfUrl}
               download="MinhAnhNgo_Resume.pdf"
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs font-extrabold shadow-md hover:scale-105 transition-transform flex items-center gap-1.5"
+              className="px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs font-extrabold shadow-md hover:scale-105 transition-transform flex items-center gap-1 sm:gap-1.5"
             >
-              <Download className="w-4 h-4" />
-              <span>{lang === 'en' ? 'Download PDF' : 'Tải CV PDF'}</span>
+              <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden xs:inline">{lang === 'en' ? 'Download PDF' : 'Tải CV PDF'}</span>
+              <span className="xs:hidden">Tải PDF</span>
             </a>
 
             {/* Close button */}
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors shadow-sm"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors shadow-sm"
               title="Close Preview"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
+
           </div>
         </div>
 
         {/* Scrollable Crisp High-Res Document Viewer Window */}
-        <div className="flex-1 bg-slate-900/95 overflow-y-auto p-4 sm:p-8 flex justify-center items-start">
+        <div className="flex-1 bg-slate-900/95 overflow-y-auto p-2 sm:p-8 flex justify-center items-start">
           <div 
-            className="transition-all duration-300 max-w-full shadow-2xl rounded-2xl overflow-hidden bg-white border border-slate-700"
+            className="transition-all duration-300 w-full sm:w-auto shadow-2xl rounded-xl sm:rounded-2xl overflow-hidden bg-white border border-slate-700"
             style={{ width: `${zoomLevel}%`, maxWidth: '900px' }}
           >
             {/* Crisp rendered PDF Page Image View */}
@@ -117,22 +121,23 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, lang }) => {
         </div>
 
         {/* Modal Bottom Footer Info Bar */}
-        <div className="px-6 py-3 bg-white border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 font-bold">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-rose-500" />
-            <span>{lang === 'en' ? 'Hoa Sen University Graduate • Marketing • IELTS 6.5' : 'Cử nhân Marketing ĐH Hoa Sen • GPA Khóa Luận 4.0/4.0 • IELTS 6.5'}</span>
+        <div className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-xs text-slate-600 font-bold shrink-0">
+          <div className="flex items-center gap-1.5 truncate pr-2">
+            <Sparkles className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+            <span className="truncate">{lang === 'en' ? 'Hoa Sen University • GPA 4.0/4.0 • IELTS 6.5' : 'ĐH Hoa Sen • GPA 4.0/4.0 • IELTS 6.5'}</span>
           </div>
 
           <a
             href={cvPdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-rose-600 font-extrabold hover:underline flex items-center gap-1"
+            className="text-rose-600 font-extrabold hover:underline flex items-center gap-1 shrink-0"
           >
             <span>{lang === 'en' ? 'Open Raw PDF' : 'Mở PDF gốc'}</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
+
       </div>
     </div>
   );
