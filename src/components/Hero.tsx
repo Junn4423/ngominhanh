@@ -30,9 +30,9 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenCvModal }) => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.1]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.1]">
               {lang === 'en' ? "Hello, I'm " : "Xin chào, tôi là "}
-              <span className="text-gradient-rose font-serif italic font-normal inline">
+              <span className="text-gradient-rose font-serif italic font-normal inline-block">
                 {p.displayName}
               </span>
             </h1>
