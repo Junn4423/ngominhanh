@@ -46,7 +46,7 @@ export const Education: React.FC<EducationProps> = ({ lang }) => {
             <div className="p-4 rounded-2xl bg-amber-50/90 border border-amber-200/80 flex items-start gap-3 shadow-sm">
               <Award className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-amber-900 font-medium leading-relaxed">
-                <span className="font-extrabold text-amber-800">4.0 / 4.0 GPA Thesis Defense: </span>
+                <span className="font-extrabold text-amber-800">3.0 / 4.0 GPA Thesis Defense: </span>
                 <span>{education.thesis[lang]}</span>
               </div>
             </div>

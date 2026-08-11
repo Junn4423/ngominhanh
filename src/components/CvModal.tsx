@@ -124,7 +124,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, lang }) => {
         <div className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-xs text-slate-600 font-bold shrink-0">
           <div className="flex items-center gap-1.5 truncate pr-2">
             <Sparkles className="w-3.5 h-3.5 text-rose-500 shrink-0" />
-            <span className="truncate">{lang === 'en' ? 'Hoa Sen University • GPA 4.0/4.0 • IELTS 6.5' : 'ĐH Hoa Sen • GPA 4.0/4.0 • IELTS 6.5'}</span>
+            <span className="truncate">{lang === 'en' ? 'Hoa Sen University • GPA 3.0/4.0 • IELTS 6.5' : 'ĐH Hoa Sen • GPA 3.0/4.0 • IELTS 6.5'}</span>
           </div>
 
           <a

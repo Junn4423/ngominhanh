@@ -114,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenCvModal }) => {
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md text-white border border-white/20 shadow-xl flex items-center justify-between">
                   <div>
                     <h3 className="font-extrabold text-sm text-white">{p.displayName}</h3>
-                    <p className="text-[11px] text-rose-300 font-semibold">{lang === 'en' ? 'Hoa Sen Univ • GPA 4.0/4.0' : 'ĐH Hoa Sen • GPA 4.0/4.0'}</p>
+                    <p className="text-[11px] text-rose-300 font-semibold">{lang === 'en' ? 'Hoa Sen Univ • GPA 3.0/4.0' : 'ĐH Hoa Sen • GPA 3.0/4.0'}</p>
                   </div>
                   <button
                     onClick={onOpenCvModal}
