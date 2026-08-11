@@ -8,7 +8,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ lang, onOpenCvModal }) => {
-  const p = PORTFOLIO_DATA.personal;
+  const { personal: p, education } = PORTFOLIO_DATA;
 
   return (
     <section id="about" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
@@ -114,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenCvModal }) => {
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md text-white border border-white/20 shadow-xl flex items-center justify-between">
                   <div>
                     <h3 className="font-extrabold text-sm text-white">{p.displayName}</h3>
-                    <p className="text-[11px] text-rose-300 font-semibold">{lang === 'en' ? 'Hoa Sen Univ • GPA 3.0/4.0' : 'ĐH Hoa Sen • GPA 3.0/4.0'}</p>
+                    <p className="text-[11px] text-rose-300 font-semibold">{lang === 'en' ? `Hoa Sen Univ • Overall GPA ${education.overallGpa}` : `ĐH Hoa Sen • GPA toàn phần ${education.overallGpa}`}</p>
                   </div>
                   <button
                     onClick={onOpenCvModal}

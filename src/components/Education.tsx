@@ -46,8 +46,11 @@ export const Education: React.FC<EducationProps> = ({ lang }) => {
             <div className="p-4 rounded-2xl bg-amber-50/90 border border-amber-200/80 flex items-start gap-3 shadow-sm">
               <Award className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-amber-900 font-medium leading-relaxed">
-                <span className="font-extrabold text-amber-800">3.0 / 4.0 GPA Thesis Defense: </span>
+                <span className="font-extrabold text-amber-800">{lang === 'en' ? 'Thesis Defense: ' : 'Khóa luận: '}</span>
                 <span>{education.thesis[lang]}</span>
+                <span className="block mt-1 font-extrabold text-amber-800">
+                  {lang === 'en' ? 'Overall GPA: ' : 'GPA toàn phần: '}{education.overallGpa}
+                </span>
               </div>
             </div>
           </div>
@@ -75,4 +78,3 @@ export const Education: React.FC<EducationProps> = ({ lang }) => {
     </section>
   );
 };
-

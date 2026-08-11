@@ -50,7 +50,7 @@ export const PORTFOLIO_DATA = {
     avatar: "./images/totnghiep.jpg",
     stats: [
       { label: { en: "Years Experience", vi: "Năm Kinh Nghiệm" }, value: "3+" },
-      { label: { en: "Thesis Defense GPA", vi: "Điểm Khóa Luận" }, value: "4.0 / 4.0" },
+      { label: { en: "Thesis Defense Score", vi: "Điểm Khóa Luận" }, value: "4.0 / 4.0" },
       { label: { en: "IELTS Certification", vi: "Chứng Chỉ IELTS" }, value: "6.5" },
       { label: { en: "Projects Completed", vi: "Dự Án Hoàn Thành" }, value: "15+" }
     ],
@@ -327,6 +327,7 @@ export const PORTFOLIO_DATA = {
       en: "Bachelor of Marketing",
       vi: "Cử Nhân Marketing"
     },
+    overallGpa: "3.0 / 4.0",
     thesis: {
       en: "Graduation Thesis defended in English — Perfect Score 4.0 / 4.0",
       vi: "Bảo vệ khóa luận tốt nghiệp bằng Tiếng Anh — Đạt điểm tuyệt đối 4.0 / 4.0"
@@ -340,4 +341,3 @@ export const PORTFOLIO_DATA = {
     }
   }
 };
-
